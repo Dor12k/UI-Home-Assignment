@@ -17,8 +17,8 @@ origins = [
     "http://localhost:5174",
     "http://localhost:4173",
     "http://localhost:3000",
-    "http://192.168.1.22:5173",  # add your frontend machine IP here
-    "http://192.168.1.22:5174",
+    # "http://SOMEIP:5173",  # add your frontend machine IP here
+    # "http://SOMEIP:5174",
 ]
 
 app.add_middleware(
@@ -62,50 +62,57 @@ async def stream_ros2(websocket: WebSocket):
     print("✅ Client connected")
 
     try:
-        # Load full GPS/ODOM data
         gps_data = load_json_file(GPS_FILE)
         odom_data = load_json_file(ODOM_FILE)
 
-        # Load and sort images
         image_files = list(IMAGES_DIR.glob("*.jpeg")) + list(IMAGES_DIR.glob("*.jpg")) + list(IMAGES_DIR.glob("*.png"))
         image_files.sort(key=lambda x: extract_frame_index(x.name))
 
         max_len = max(len(image_files), len(gps_data), len(odom_data))
-        print(f"📡 Streaming {len(image_files)} images, {len(gps_data)} GPS entries, {len(odom_data)} Odom entries")
 
-        for i in range(max_len):
-            # --- Image ---
-            if i < len(image_files):
-                img_b64 = load_image_file(image_files[i])
-                if img_b64:
-                    frame_msg = {
-                        "type": "image",
-                        "frame_index": i,
-                        "filename": image_files[i].name,
-                        "data": img_b64
-                    }
-                    await websocket.send_text(json.dumps(frame_msg))
+        # --- Task 1: read commands from client ---
+        async def receive_commands():
+            while True:
+                msg = await websocket.receive_text()
+                data = json.loads(msg)
+                # print("📥 Received command:", data)
 
-            # --- GPS ---
-            if i < len(gps_data):
-                gps_msg = gps_data[i].copy()
-                gps_msg["type"] = "gps"
-                await websocket.send_text(json.dumps(gps_msg))
+                # Example: twist command
+                if data.get("type") == "twist":
+                    # TODO: send to ROS2 Twist publisher
+                    # print("🌀 Twist command received:", data["data"])
+                    pass
 
-            # --- Odometry ---
-            if i < len(odom_data):
-                odom_msg = odom_data[i].copy()
-                odom_msg["type"] = "odom"
-                await websocket.send_text(json.dumps(odom_msg))
+        # --- Task 2: stream data to client ---
+        async def stream_data():
+            for i in range(max_len):
 
-            await asyncio.sleep(0.05)  # ~20 FPS
+                if i < len(image_files):
+                    img_b64 = load_image_file(image_files[i])
+                    if img_b64:
+                        await websocket.send_text(json.dumps({
+                            "type": "image",
+                            "frame_index": i,
+                            "filename": image_files[i].name,
+                            "data": img_b64
+                        }))
 
-        print("✅ Streaming finished")
-        await websocket.close()
+                if i < len(gps_data):
+                    gps_msg = gps_data[i].copy()
+                    gps_msg["type"] = "gps"
+                    await websocket.send_text(json.dumps(gps_msg))
+
+                if i < len(odom_data):
+                    odom_msg = odom_data[i].copy()
+                    odom_msg["type"] = "odom"
+                    await websocket.send_text(json.dumps(odom_msg))
+
+                await asyncio.sleep(0.05)
+
+        # Run both tasks in parallel
+        await asyncio.gather(receive_commands(), stream_data())
 
     except WebSocketDisconnect:
         print("⚠️ Client disconnected")
-
     except Exception as e:
-        print(f"❌ Streaming error: {e}")
-        await websocket.close()
+        print("❌ Error:", e)

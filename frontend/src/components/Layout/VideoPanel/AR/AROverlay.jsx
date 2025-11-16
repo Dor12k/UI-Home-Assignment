@@ -15,6 +15,8 @@ import JoystickWidget from '../AR/Joystick/JoystickWidget';
 import HungarianCubeWithEdges from '../AR/3D/HungarianCubeWithEdges';
 
 
+
+
 // === Map sidebar feature → component mapping ===
 const featureComponents = {
   "Augmented Shape": Vehicle,

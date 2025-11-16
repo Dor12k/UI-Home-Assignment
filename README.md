@@ -8,6 +8,18 @@ A lightweight system for visualizing ROS2 robot data in real time using a FastAP
 
 ---
 
+### 🎬 Demo Video
+
+Check out the real-time robot UI in action!  
+
+**🤖 Real-Time Interactive User Interface | Augmented Reality Robot UI 🌐🚀**
+
+[![Watch the Demo](https://github.com/user-attachments/assets/7fef7dcf-97bd-461b-bf47-1b704b0b34f6)](https://youtu.be/S3jNLaoNTA8)
+
+Click the image above to watch the full demo on YouTube.
+
+---
+
 ## Install
 
 Use the "run_all.bat" file to run the installation. Make sure the `ROS2_bag` folder contains the `data.mcap` file, then run:
@@ -74,28 +86,12 @@ App.jsx
 
 ---
 
-# Implemented with "**It would be impressive to see**"
 
-## Core Features (Implemented)
-
-| Feature           | Status          |
-|------------------|----------------|
-| Live Video Feed   | ✅ implemented  |
-| Augmented Shapes  | ✅ implemented  |
-
-## Advanced Features
-
-| Feature                          | Status                                |
-|---------------------------------|--------------------------------------|
-| Augmented Shapes + Mouse Control | ⭕ not implemented                     |
-| Joystick Widget                  | ⭕ not implemented                     |
-| World Maps                       | 🟡 In Progress / Partially Implemented|
-| Dashboard Information            | ✅ implemented                        |
-| Novel Feature                    | ✅ implemented                        |
-
----
 
 # Implemented with "Novel Feature"
+
+## Features
+
 
 | Feature                          | Status          | Notes |
 |---------------------------------|----------------|-------|
@@ -103,4 +99,15 @@ App.jsx
 | Augmented Shapes + Mouse Control | ✅ implemented  | - Add multiple shapes on the screen<br>- Define size (width, height, depth), color, opacity<br>- Delete shapes with right-click on the mouse |
 | Joystick Widget                  | ✅ implemented  | - Button to switch between joystick type/design |
 
+
+---
+
+# Implemented with "**It would be impressive to see**"
+
+| Feature                          | Status                                |
+|---------------------------------|--------------------------------------|
+| Augmented Shapes                 | ✅ implemented                        |
+| Dashboard Information            | ✅ implemented                        |
+| Novel Feature                    | ✅ implemented                        |
+| World Maps                       | 🟡 In Progress / Partially Implemented|
 ---

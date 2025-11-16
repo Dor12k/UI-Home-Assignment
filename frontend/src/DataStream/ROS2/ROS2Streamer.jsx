@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import frame from '../../../public/frame_00001.jpg'
+// import frame from '../../../public/frame_00001.jpg'
 import MainLayout from './../../components/Layout/MainLayout/MainLayout';
 
 import { useState, useEffect, useRef } from 'react';
@@ -53,8 +53,8 @@ const ROS2Streamer = () => {
     // Incoming msg types: [image, gps, odom] See Dictionary.md lines 1-100 for full msg structure
     useEffect( () => {
 
-        // const ws = new WebSocket("ws://localhost:8000/ws/stream"); // localhost
-        const ws = new WebSocket("ws://192.168.1.22:8000/ws/stream"); // WI-FI
+        const ws = new WebSocket("ws://localhost:8000/ws/stream"); // localhost
+        // const ws = new WebSocket("ws://IP:8000/ws/stream"); // WI-FI
 
         wsRef.current = ws;
 
@@ -64,12 +64,14 @@ const ROS2Streamer = () => {
             
             if(msg.type === "image" && msg.data ){
                 // console.log("image: ", msg)
-                setImages(prev => [...prev, msg.data])
+                // setImages(prev => [...prev, msg.data])
+                setImages([msg.data])
+
             }
 
             // --- GPS ---
             if(msg.type === "gps"){
-                console.log("gps: ", msg)
+                // console.log("gps: ", msg)
                 setGpsData( msg )
             }
    
@@ -80,7 +82,7 @@ const ROS2Streamer = () => {
             }
         }
         
-        setImages(prev => [...prev, frame])
+        // setImages(prev => [...prev, frame])
 
         ws.onopen = () => console.log("✅ WebSocket connected");
         ws.onclose = () => console.log("⚠️ WebSocket disconnected");
@@ -89,11 +91,17 @@ const ROS2Streamer = () => {
 
 
     // Send command to the server
+    // const sendCommandToServer = (cmd) => {
+    //     if(wsRef.current && wsRef.current.readyState === WebSocket.OPEN){
+    //         wsRef.current.send(JSON.stringify({ type: "joystick", data: cmd }));
+    //     }
+    // };
     const sendCommandToServer = (cmd) => {
-        if(wsRef.current && wsRef.current.readyState === WebSocket.OPEN){
-            wsRef.current.send(JSON.stringify({ type: "joystick", data: cmd }));
+        if (wsRef.current?.readyState === WebSocket.OPEN) {
+            wsRef.current.send(JSON.stringify(cmd)); 
         }
     };
+
 
     // Return command from joystick - Should convert to 'Twist' message
     const handleJoystickChange = ({ linear, angular }) => {
