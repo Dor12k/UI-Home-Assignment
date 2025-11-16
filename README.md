@@ -12,11 +12,12 @@ A lightweight system for visualizing ROS2 robot data in real time using a FastAP
 
 Check out the real-time robot UI in action!  
 
-**🤖 Real-Time Interactive User Interface | Augmented Reality Robot UI 🌐🚀**
+## 🤖 Real-Time Interactive User Interface | Augmented Reality Robot UI 🌐🚀
 
-[![Watch the Demo](https://github.com/user-attachments/assets/7fef7dcf-97bd-461b-bf47-1b704b0b34f6)](https://youtu.be/S3jNLaoNTA8)
+[![Watch the Demo](https://github.com/user-attachments/assets/9fbcfc1f-7215-488a-9973-2ca8e571c6d6)](https://youtu.be/dBqTq7Yx9kY)
 
 Click the image above to watch the full demo on YouTube.
+
 
 ---
 
