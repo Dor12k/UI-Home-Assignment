@@ -1,7 +1,7 @@
 
 
 
-# Project: Elbit Robotics UI & Backend
+# Project: AR UI & Backend
 
 ## Overview
 A lightweight system for visualizing ROS2 robot data in real time using a FastAPI backend and a Vite+React frontend.
