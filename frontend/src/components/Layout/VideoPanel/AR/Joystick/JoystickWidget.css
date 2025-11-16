@@ -1,0 +1,67 @@
+
+
+/* File: JoystickWidget.css */
+.joystick-wrapper {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 100;
+}
+
+.joystick-container {
+  width: 120px;
+  height: 120px;
+  background: #0f1a29;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 12px #00d0ff inset;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.joystick-container:hover {
+  box-shadow: 0 0 15px #00d0ff, 0 0 25px #00d0ff inset;
+}
+
+.joystick-container.active {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px #00d0ff; }
+  50% { box-shadow: 0 0 22px #00ffe1; }
+  100% { box-shadow: 0 0 10px #00d0ff; }
+}
+
+.joystick-stick {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(145deg, #00d0ff, #00ffe1);
+  border-radius: 50%;
+  transition: transform 0.1s ease;
+  box-shadow: 0 0 8px #00ffe1;
+}
+
+.action-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #0f1a29, #122236);
+  box-shadow: 0 0 12px #2db7ff;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:active {
+  box-shadow: 0 0 20px #63dbff inset;
+  transform: scale(0.95);
+}

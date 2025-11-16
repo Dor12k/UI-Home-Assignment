@@ -1,0 +1,65 @@
+Topics in C:\WorkSpace\Elbit-System\Server-Template\ROS2\ROS2_bag\data.mcap
+==================================================
+
+Topic: nav_msgs/msg/Odometry
+Message type: Message
+
+Topic: sensor_msgs/msg/CompressedImage
+Message type: Message
+
+Topic: sensor_msgs/msg/NavSatFix
+Message type: Message
+
+
+=======================================================
+
+GPS (NavSatFix)
+
+
+{
+    latitude: float,          # North coordinate (degrees)
+    longitude: float,         # East coordinate (degrees)
+    altitude: float,          # Height above sea level (meters)
+    position_covariance: [float, ...],  # 3x3 matrix representing position accuracy
+    header: {
+        stamp: timestamp,     # Message timestamp
+        frame_id: str         # Reference frame name
+    }
+}
+
+--------------------------------------------------------
+
+Odometry (Odometry)
+{
+    pose: {
+        pose: {
+            position: {x: float, y: float, z: float},           # Position in space (meters)
+            orientation: {x: float, y: float, z: float, w: float}  # Rotation as quaternion
+        }
+    },
+    twist: {
+        twist: {
+            linear: {x: float, y: float, z: float},           # Linear velocity (m/s)
+            angular: {x: float, y: float, z: float}           # Angular velocity (rad/s)
+        }
+    },
+    header: {
+        stamp: timestamp,     # Message timestamp
+        frame_id: str         # Reference frame name
+    }
+}
+
+
+
+CompressedImage (CompressedImage)
+
+{
+    format: str,            # Compressed image format, e.g., "jpeg"
+    data: bytes,            # Compressed image bytes
+    header: {
+        stamp: timestamp,   # Message timestamp
+        frame_id: str       # Reference frame name
+    }
+}
+
+

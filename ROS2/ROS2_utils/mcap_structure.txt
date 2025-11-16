@@ -1,0 +1,36 @@
+
+
+Topics in \ROS2\ROS2_bag\data.mcap
+==================================================
+
+Topic: nav_msgs/msg/Odometry
+Message type: Message
+Sample fields:
+channel_id: 2
+data: b'\x00\x01\x00\x00\x04\\\x98h\x17\x12\x02$\x05\x00\x00\x00odom\x ... # continue
+log_time: 1754815489413616328
+publish_time: 1754815489413616328
+read: <function Message.read at 0x000001C0BA8A0E00>
+sequence: 0
+write: <bound method Message.write of Message(channel_id=2, log_time=1754815489413616328, data=b'\x00\x01\x0 ...
+
+Topic: sensor_msgs/msg/CompressedImage
+Message type: Message
+Sample fields:
+channel_id: 1
+data: b'\x00\x01\x00\x00\x04\\\x98h\x82\x9e\xeb"\x ... # continue
+log_time: 1754815489426546827
+publish_time: 1754815489426546827
+read: <function Message.read at 0x000001C0BA8A0E00>
+sequence: 0
+write: <bound method Message.write of Message(channel_id=1, log_time=1754815489426546827, data=b'\x00\x01\x00\x00\x04\\\x98h ..
+Message type: Message
+Sample fields:
+channel_id: 3
+data: b'\x00\x01\x00\x00\x01\\\x98h\xeb\x8f\xe6\x0e\x04\ ... # continue
+log_time: 1754815489495277093
+publish_time: 1754815489495277093
+read: <function Message.read at 0x000001C0BA8A0E00>
+sequence: 0
+write: <bound method Message.write of Message(channel_id=3, log_time=1754815489495277093, data=b'\x00\x01\x00\x00\x01 ...
+

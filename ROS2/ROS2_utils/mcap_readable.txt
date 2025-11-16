@@ -1,0 +1,30 @@
+Topics in bag file:
+{'/robot_odom', '/ublox_gps_node/fix', '/neural_depth/left/image_rect_raw/compressed'}
+============================================================
+[/robot_odom] timestamp: 1754815489413616328
+Sample: Position: x=338.7157177666436, y=2414.1269671099544, z=1264.029840326936 | Orientation: x=0.36353450772806745, y=-0.134618640381276, z=0.6995032204606102, w=0.6003463399722226
+
+[/neural_depth/left/image_rect_raw/compressed] timestamp: 1754815489426546827
+Sample: Compressed image bytes length: 39830, format: jpg
+
+[/robot_odom] timestamp: 1754815489444360894
+Sample: Position: x=338.7157177666436, y=2414.1269671099544, z=1264.029840326936 | Orientation: x=0.36353450772806745, y=-0.134618640381276, z=0.6995032204606102, w=0.6003463399722226
+
+[/robot_odom] timestamp: 1754815489476272348
+Sample: Position: x=338.7157177666436, y=2414.1269671099544, z=1264.029840326936 | Orientation: x=0.36353450772806745, y=-0.134618640381276, z=0.6995032204606102, w=0.6003463399722226
+
+[/neural_depth/left/image_rect_raw/compressed] timestamp: 1754815489491112032
+Sample: Compressed image bytes length: 39739, format: jpg
+
+[/ublox_gps_node/fix] timestamp: 1754815489495277093
+Sample: Latitude: 31.6639283, Longitude: 35.0051406, Altitude: 343.907
+
+[/neural_depth/left/image_rect_raw/compressed] timestamp: 1754815489556501685
+Sample: Compressed image bytes length: 39789, format: jpg
+
+[/ublox_gps_node/fix] timestamp: 1754815489745438928
+Sample: Latitude: 31.6639283, Longitude: 35.0051406, Altitude: 343.907
+
+[/ublox_gps_node/fix] timestamp: 1754815489994770006
+Sample: Latitude: 31.6639283, Longitude: 35.0051406, Altitude: 343.907
+

@@ -1,0 +1,34 @@
+
+
+
+# ====== GENERAL SETTINGS ======
+# Python
+__pycache__/
+venv/
+
+# Node modules
+node_modules/
+
+# System / editor
+.DS_Store
+.env
+
+# ====== ROS2 FOLDERS ======
+# Ignore contents of ROS2_bag (raw data), keep folder
+ROS2/ROS2_bag/*
+!ROS2/ROS2_bag/.gitkeep
+
+# Ignore ROS2_stream subfolders (raw sensor outputs), keep folders
+ROS2/ROS2_stream/gps/*
+!ROS2/ROS2_stream/gps/.gitkeep
+
+ROS2/ROS2_stream/images/*
+!ROS2/ROS2_stream/images/.gitkeep
+
+ROS2/ROS2_stream/odometry/*
+!ROS2/ROS2_stream/odometry/.gitkeep
+
+# ====== FILE TYPES TO IGNORE ONLY IN DATA FOLDERS ======
+# If you want, can ignore mcap, msg, bin, png inside ROS2_bag or ROS2_stream, 
+# but not globally, to avoid blocking important project files
+# This is already covered by ignoring contents of folders above
