@@ -44,6 +44,7 @@ App.jsx
             ├─ Dashboard.jsx         # Telemetry & system status
             └─ VideoPanel.jsx        # Final rendered video + AR overlay
                 ├─ VideoStream.jsx   # Streams video frames from backend
+                ├─ MapOverlay.jsx    # Displays map view, robot position, and navigation markers 
                 └─ AROverlay.jsx     # Augmented Reality overlay layer
                     ├─ 3D/           # 3D geometric shapes (Three.js)
                     │   ├─ Cube.jsx
